@@ -8,14 +8,15 @@
  * @teacher Dr. Lively
  * @date 12/11/17
  */
+package vendingMachine;
 
-public class MilestoneTwo {
+public class VendingMachine {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Todo: Test class
+        // PlaceHolder for implementation.
     }
     
 }
