@@ -27,10 +27,16 @@ abstract public class Product {
         int randomQuantity = ThreadLocalRandom.current().nextInt(1, 11);
         quantity = randomQuantity;
     }
+
     public Product(String name, double price, int quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" + "name=" + name + ", price=" + price + ", quantity=" + quantity + '}';
     }
 
     public String getName() {
@@ -57,19 +63,19 @@ abstract public class Product {
         this.quantity = quantity;
     }
 
-    public void increaseQuantity(){
+    public void increaseQuantity() {
         this.quantity++;
     }
-    
-    public void increaseQuantity(int increase){
+
+    public void increaseQuantity(int increase) {
         this.quantity += increase;
     }
 
-    public void decreaseQuantity(){
+    public void decreaseQuantity() {
         this.quantity--;
     }
-    
-    public void decreaseQuantity(int decrease){
+
+    public void decreaseQuantity(int decrease) {
         this.quantity -= decrease;
     }
 }

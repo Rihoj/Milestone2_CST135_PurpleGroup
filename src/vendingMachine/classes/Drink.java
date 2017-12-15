@@ -13,7 +13,7 @@ package vendingMachine.classes;
 import java.text.DecimalFormat;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Drink extends Product{
+public class Drink extends Product {
 
     private double ounces;
     private String type;
@@ -32,6 +32,11 @@ public class Drink extends Product{
         this.type = type;
     }
 
+    @Override
+    public String toString() {
+        return "Drink{" + "ounces=" + ounces + ", type=" + type + '}';
+    }
+
     public double getOunces() {
         return ounces;
     }
@@ -47,5 +52,5 @@ public class Drink extends Product{
     public void setType(String type) {
         this.type = type;
     }
-    
+
 }
