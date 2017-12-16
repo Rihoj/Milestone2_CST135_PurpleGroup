@@ -73,7 +73,7 @@ public class Snack extends Product {
     /**
      * Gets the weight of the snack
      *
-     * @return
+     * @return double
      */
     public double getWeight() {
         return weight;
@@ -91,7 +91,7 @@ public class Snack extends Product {
     /**
      * get the calories in the snack.
      *
-     * @return
+     * @return int
      */
     public int getCalories() {
         return calories;
