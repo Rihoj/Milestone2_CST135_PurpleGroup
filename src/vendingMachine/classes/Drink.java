@@ -76,6 +76,13 @@ public class Drink extends Product {
     }
 
     /**
+     * Copy constructor
+     * @param drink 
+     */
+    public Drink(Drink drink){
+        this(drink.getOunces(), drink.getType(), drink.getCalories(), drink.isSugarFree(), drink.getCaffeine(), drink.getProductName(), drink.getPrice(), drink.getQuantity(), drink.getDispenceLocation());
+    }
+    /**
      * Return string of drink class.
      *
      * @return String
