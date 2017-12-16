@@ -53,6 +53,14 @@ public class Candy extends Snack {
     }
 
     /**
+     * Copy constructor
+     * @param candy 
+     */
+    public Candy(Candy candy){
+        this(candy.getServingSize(), candy.getFlavor(), candy.isSugarFree(), candy.isGlutenFree(), candy.getWeight(), candy.getCalories(), candy.getProductName(), candy.getPrice(), candy.getQuantity(), candy.getDispenceLocation());
+    }
+
+    /**
      * Return the string for candy class.
      *
      * @return String
