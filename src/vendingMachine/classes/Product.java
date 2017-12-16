@@ -64,6 +64,14 @@ abstract public class Product {
     }
 
     /**
+     * Copy constructor
+     * @param product 
+     */
+    public Product(Product product) {
+        this(product.getProductName(), product.getPrice(), product.getQuantity(), product.getDispenceLocation());
+    }
+
+    /**
      * Returns a string of what the product is.
      *
      * @return String
