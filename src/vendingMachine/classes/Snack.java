@@ -52,6 +52,15 @@ public class Snack extends Product {
     }
 
     /**
+     * Copy constructor
+     *
+     * @param snack
+     */
+    public Snack(Snack snack) {
+        this(snack.getWeight(), snack.getCalories(), snack.getProductName(), snack.getPrice(), snack.getQuantity(), snack.getDispenceLocation());
+    }
+
+    /**
      * Returns a string of what the snack is.
      *
      * @return String
