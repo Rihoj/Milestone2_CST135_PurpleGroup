@@ -13,7 +13,7 @@ package vendingMachine.classes;
 import java.text.DecimalFormat;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Snack extends Product {
+abstract public class Snack extends Product {
 
     /**
      * weight of the snack
