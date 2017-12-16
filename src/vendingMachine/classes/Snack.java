@@ -10,51 +10,91 @@
  */
 package vendingMachine.classes;
 
-public class Snack extends Product{
+import java.text.DecimalFormat;
+import java.util.concurrent.ThreadLocalRandom;
 
+public class Snack extends Product {
+
+    /**
+     * weight of the snack
+     */
     private double weight;
-    private double length;
-    private double width;
+    /**
+     * calories in the snack
+     */
+    private int calories;
 
+    /**
+     * Create a snack with generic information.
+     */
     public Snack() {
         super();
+        double randomWeight = ThreadLocalRandom.current().nextDouble(1, 11);
+        DecimalFormat dec = new DecimalFormat("#.00");
+        weight = Double.parseDouble(dec.format(randomWeight));
+        calories = ThreadLocalRandom.current().nextInt(5, 256);
     }
 
-    public Snack(double weight, double length, double width, String name, double price, int quantity) {
-        super(name, price, quantity);
+    /**
+     * Create a snack with specific information.
+     *
+     * @param weight
+     * @param calories
+     * @param productName
+     * @param price
+     * @param quantity
+     * @param dispenceLocation
+     */
+    public Snack(double weight, int calories, String productName, double price, int quantity, String dispenceLocation) {
+        super(productName, price, quantity, dispenceLocation);
         this.weight = weight;
-        this.length = length;
-        this.width = width;
+        this.calories = calories;
     }
 
+    /**
+     * Returns a string of what the snack is.
+     *
+     * @return String
+     */
     @Override
     public String toString() {
-        return super.toString()+"\nSnack{" + "weight=" + weight + ", length=" + length + ", width=" + width + '}';
+        return super.toString() + "\nSnack{" + "weight=" + weight + ", calories=" + calories + '}';
     }
 
+    /**
+     * Gets the weight of the snack
+     *
+     * @return
+     */
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * set the weight of a snack.
+     *
+     * @param weight
+     */
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public double getLength() {
-        return length;
+    /**
+     * get the calories in the snack.
+     *
+     * @return
+     */
+    public int getCalories() {
+        return calories;
     }
 
-    public void setLength(double length) {
-        this.length = length;
+    /**
+     * sets the calories in the snack.
+     *
+     * @param calories
+     */
+    public void setCalories(int calories) {
+        this.calories = calories;
     }
 
-    public double getWidth() {
-        return width;
-    }
-
-    public void setWidth(double width) {
-        this.width = width;
-    }
-    
-    
 }
