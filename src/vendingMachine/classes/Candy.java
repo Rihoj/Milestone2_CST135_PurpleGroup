@@ -10,39 +10,128 @@
  */
 package vendingMachine.classes;
 
-public class Candy extends Snack{
-    private String flavor;
-    private String type;
+import java.util.concurrent.ThreadLocalRandom;
 
+public class Candy extends Snack {
+
+    private double servingSize;
+    private String flavor;
+    private boolean sugarFree;
+    private boolean glutenFree;
+
+    /**
+     * Create candy with generic information.
+     */
     public Candy() {
         super();
+        servingSize = ThreadLocalRandom.current().nextDouble(1, 5);
+        flavor = "Peppermint";
+        sugarFree = ThreadLocalRandom.current().nextBoolean();
+        glutenFree = ThreadLocalRandom.current().nextBoolean();
     }
 
-    public Candy(String flavor, String type, double weight, double length, double width, String name, double price, int quantity) {
-        super(weight, length, width, name, price, quantity);
+    /**
+     * Create Candy with specific information.
+     *
+     * @param servingSize
+     * @param flavor
+     * @param sugarFree
+     * @param glutenFree
+     * @param weight
+     * @param calories
+     * @param productName
+     * @param price
+     * @param quantity
+     * @param dispenceLocation
+     */
+    public Candy(double servingSize, String flavor, boolean sugarFree, boolean glutenFree, double weight, int calories, String productName, double price, int quantity, String dispenceLocation) {
+        super(weight, calories, productName, price, quantity, dispenceLocation);
+        this.servingSize = servingSize;
         this.flavor = flavor;
-        this.type = type;
+        this.sugarFree = sugarFree;
+        this.glutenFree = glutenFree;
     }
 
+    /**
+     * Return the string for candy class.
+     *
+     * @return String
+     */
     @Override
     public String toString() {
-        return super.toString()+"\nCandy{" + "flavor=" + flavor + ", type=" + type + '}';
+        return super.toString() + "\nCandy{" + "servingSize=" + servingSize + ", flavor=" + flavor + ", sugarFree=" + sugarFree + ", glutenFree=" + glutenFree + '}';
     }
 
+    /**
+     * Gets the flavor of the candy
+     *
+     * @return String
+     */
     public String getFlavor() {
         return flavor;
     }
 
+    /**
+     * sets the flavor of the candy
+     *
+     * @param flavor
+     */
     public void setFlavor(String flavor) {
         this.flavor = flavor;
     }
 
-    public String getType() {
-        return type;
+    /**
+     * gets the service size of the candy.
+     *
+     * @return double
+     */
+    public double getServingSize() {
+        return servingSize;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    /**
+     * sets the serving size of the candy
+     *
+     * @param servingSize
+     */
+    public void setServingSize(double servingSize) {
+        this.servingSize = servingSize;
     }
-    
+
+    /**
+     * Checks if the candy is sugar free.
+     *
+     * @return boolean
+     */
+    public boolean isSugarFree() {
+        return sugarFree;
+    }
+
+    /**
+     * sets the sugar free status.
+     *
+     * @param sugarFree
+     */
+    public void setSugarFree(boolean sugarFree) {
+        this.sugarFree = sugarFree;
+    }
+
+    /**
+     * Checks if the candy is gluten free.
+     *
+     * @return boolean
+     */
+    public boolean isGlutenFree() {
+        return glutenFree;
+    }
+
+    /**
+     * sets if the gluten free status.
+     *
+     * @param glutenFree
+     */
+    public void setGlutenFree(boolean glutenFree) {
+        this.glutenFree = glutenFree;
+    }
+
 }
