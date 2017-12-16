@@ -14,9 +14,24 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Candy extends Snack {
 
+    /**
+     * Serving size of the candy
+     */
     private double servingSize;
+
+    /**
+     * flavor of the candy
+     */
     private String flavor;
+
+    /**
+     * Is the candy sugar free
+     */
     private boolean sugarFree;
+
+    /**
+     * is the candy gluten free
+     */
     private boolean glutenFree;
 
     /**
@@ -25,7 +40,7 @@ public class Candy extends Snack {
     public Candy() {
         super();
         servingSize = ThreadLocalRandom.current().nextDouble(1, 5);
-        flavor = "Peppermint";
+        flavor = "Chocolate";
         sugarFree = ThreadLocalRandom.current().nextBoolean();
         glutenFree = ThreadLocalRandom.current().nextBoolean();
     }
@@ -54,9 +69,10 @@ public class Candy extends Snack {
 
     /**
      * Copy constructor
-     * @param candy 
+     *
+     * @param candy
      */
-    public Candy(Candy candy){
+    public Candy(Candy candy) {
         this(candy.getServingSize(), candy.getFlavor(), candy.isSugarFree(), candy.isGlutenFree(), candy.getWeight(), candy.getCalories(), candy.getProductName(), candy.getPrice(), candy.getQuantity(), candy.getDispenceLocation());
     }
 
