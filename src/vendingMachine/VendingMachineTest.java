@@ -12,15 +12,41 @@ package vendingMachine;
 
 /**
  *
- * @author jamesray
+ * @author Christopher Hyde
  */
+
+
+import vendingMachine.classes.*;
+
 public class VendingMachineTest {
+
+
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //Place holder for testing.
+        // New Dispenser instance called vendingMachine
+        Dispenser vendingMachine = new Dispenser(20.00, 0);
+
+        //  -- Test vendingMachines toString() method. --
+        System.out.println(vendingMachine + "\n");
+
+        // -- Test Changing a product in the Dispenser --
+        System.out.println("BEFORE: " + vendingMachine.getProductList().get(14) + "\n"); // print product before change
+
+        // Create product to that will take the place of index 14
+        Product newGum = new Gum("Watermelon", 8, 1, true, 13.3, 1, "Trident", 0.50, 10, "C5");
+
+        // Use the Dispenser change method
+        vendingMachine.changeProduct(14, newGum);
+
+        System.out.println("AFTER: " + vendingMachine.getProductList().get(14)); // print product after change
+
+
     }
-    
+
+
+
+
 }
