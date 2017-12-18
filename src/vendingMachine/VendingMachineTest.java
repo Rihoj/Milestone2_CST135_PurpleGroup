@@ -17,6 +17,9 @@ package vendingMachine;
 
 
 import vendingMachine.classes.*;
+import vendingMachine.classes.products.Drink;
+import vendingMachine.classes.products.Gum;
+import vendingMachine.classes.products.Product;
 
 public class VendingMachineTest {
 
@@ -43,6 +46,17 @@ public class VendingMachineTest {
 
         System.out.println("AFTER: " + vendingMachine.getProductList().get(14)); // print product after change
 
+        //TODO: Replase temp test code with actual test code for drinks and snacks as per Milestone 3 requirements
+        // -- Start temp test code
+        Drink coke = new Drink(12, "Soft Drink", 140, false, 1, "Coca-Cola", 1.25, 10, "D1");
+        Drink dietCoke = new Drink(12, "Soft Drink", 0, true, 1, "Diet Coca-Cola", 1.25, 10, "D2");
+        Drink dCoke = new Drink(12, "Soft Drink", 0, true, 1, "Diet Coca-Cola", 1.50, 10, "D2");
+
+        System.out.println("\n Product name comparison test: " + coke.compareTo(dietCoke)); // should return 1
+        System.out.println("\n Product same price comparison test: " + dietCoke.compareTo(dietCoke)); // should return 0
+        System.out.println("\n Product higher price comparison test: " + dCoke.compareTo(dietCoke)); // should return -1
+
+        //-- End temp test code
 
     }
 
