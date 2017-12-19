@@ -69,6 +69,41 @@ abstract public class Snack extends Product {
     public String toString() {
         return super.toString() + "\nSnack{" + "weight=" + weight + ", calories=" + calories + '}';
     }
+    
+    /**
+     * Compare this snack to another snack
+     * greater return 1
+     * less than return -1
+     * equal return 0
+     * @param snack
+     * return in
+     */
+    @Override
+    public in compareTo(Snack snack){
+        
+        //Check to see if the product names are the same.
+        if(this.getProductName().equalsIgnoreCase(snack.getProductName())){
+            //If they are the same, check to see if the price is equal
+            if(this.getPrice() == snack.getPrice()){
+                return 0;
+            }else{
+                //Test which product has the higher price and return them in ascending order.
+                if(this.getPrice() > snack.getPrice()){
+                    return -1;
+                }else{
+                    return 1;
+                }
+            }
+            
+        }else{
+            //If they have the same price, check which name comes sooner and return result in alphabetical order.
+            if(this.getProductName().compareTOIgnoreCase(snack.getProductName()) > 0){
+                return -1;
+            }else{
+                return 1;
+            }
+        }
+    }
 
     /**
      * Gets the weight of the snack
