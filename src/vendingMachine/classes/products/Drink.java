@@ -13,7 +13,7 @@ package vendingMachine.classes.products;
 import java.text.DecimalFormat;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Drink extends Product implements Comparable<Drink>{
+public class Drink extends Product implements Comparable<Drink> {
 
     /**
      * Ounces in a drink.
@@ -77,11 +77,13 @@ public class Drink extends Product implements Comparable<Drink>{
 
     /**
      * Copy constructor
-     * @param drink 
+     *
+     * @param drink
      */
-    public Drink(Drink drink){
+    public Drink(Drink drink) {
         this(drink.getOunces(), drink.getType(), drink.getCalories(), drink.isSugarFree(), drink.getCaffeine(), drink.getProductName(), drink.getPrice(), drink.getQuantity(), drink.getDispenceLocation());
     }
+
     /**
      * Return string of drink class.
      *
@@ -93,37 +95,29 @@ public class Drink extends Product implements Comparable<Drink>{
     }
 
     /**
-     * Compare this drink to another drink
-     * greater return 1
-     * lessthan return -1
+     * Compare this drink to another drink greater return 1 lessthan return -1
      * equal return 0.
+     *
      * @param drink
-     * return int
+     * @return int
      */
     @Override
-    public int compareTo(Drink drink){
-
+    public int compareTo(Drink drink) {
         //Check to see if product names are the same
-        if(this.getProductName().equalsIgnoreCase(drink.getProductName())){
+        if (this.getProductName().equalsIgnoreCase(drink.getProductName())) {
             //If so check if price are equal and return result
-            if(this.getPrice() == drink.getPrice()){
+            if (this.getPrice() == drink.getPrice()) {
                 return 0;
-            }else{
-                // Test wich product has the higher price and return them in assending order.
-                if(this.getPrice() > drink.getPrice()){
-                    return -1;
-                }else{
-                    return 1;
-                }
-            }
-
-        }else{
-            // If not check to see wich name comes sooner in the alphabet and return result in alphabetical order.
-            if(this.getProductName().compareToIgnoreCase(drink.getProductName()) > 0){
+            } else if (this.getPrice() > drink.getPrice()) { // Test wich product has the higher price and return them in assending order.
                 return -1;
-            }else{
+            } else {
                 return 1;
             }
+
+        } else if (this.getProductName().compareToIgnoreCase(drink.getProductName()) > 0) {// If not check to see wich name comes sooner in the alphabet and return result in alphabetical order.
+            return -1;
+        } else {
+            return 1;
         }
     }
 

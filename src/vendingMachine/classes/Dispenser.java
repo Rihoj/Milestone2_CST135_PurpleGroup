@@ -20,7 +20,6 @@ import java.util.ArrayList;
 /**
  * @author Christopher Hyde
  */
-
 public class Dispenser {
 
     /**
@@ -41,16 +40,16 @@ public class Dispenser {
     /**
      * Create a Dispenser with generic information.
      */
-    public Dispenser(){
+    public Dispenser() {
         this.productList = new ArrayList<Product>();
         this.balance = 20.00;
         this.totalSales = 0;
     }
 
     /**
-    * Create Dispenser with specific info and Generated productList
-    */
-    public Dispenser(double balance, int totalSales){
+     * Create Dispenser with specific info and Generated productList
+     */
+    public Dispenser(double balance, int totalSales) {
         productListFiller(); // Fill the productList with products
         this.balance = balance; // The amount of money for change giving before any sales are made.
         this.totalSales = totalSales;
@@ -64,9 +63,8 @@ public class Dispenser {
     @Override
     public String toString() {
 
-
         // Return the inventory string along with the balance and totalSales of the Dispenser.
-        return "Inventory:\n" +displayProducts() + "Balance: " + getBalance() + "\nTotal Sales:" + getTotalSales();
+        return "Inventory:\n" + displayProducts() + "Balance: " + getBalance() + "\nTotal Sales:" + getTotalSales();
     }
 
     /**
@@ -74,11 +72,11 @@ public class Dispenser {
      *
      * @return String
      */
-    public String displayProducts(){
+    public String displayProducts() {
         String inventory = "";
 
         // Create a single string containing every product in the Dispenser
-        for(int i = 0; i < getProductList().size(); i++){
+        for (int i = 0; i < getProductList().size(); i++) {
             inventory += i + ": " + getProductList().get(i) + "\n\n";
         }
 
@@ -86,15 +84,15 @@ public class Dispenser {
     }
 
     /**
-     *  Fill the productList with products
+     * Fill the productList with products
      */
-    public void productListFiller(){
+    public void productListFiller() {
         // Varaity of products that will be placed in the productList ArrayList<Product>
-        productList.add(new Chips("Barbecue", 1, false, false, 28.4, 139, "Lays", 0.99, 10, "A1" ));
-        productList.add(new Chips("Classic", 1, false, false, 28.4, 152, "Lays", 0.99, 10, "A2" ));
-        productList.add(new Chips("Original", 1, true, false, 28.2, 160, "Fritos", 0.99, 10, "A3" ));
-        productList.add(new Chips("Cool Ranch", 1, true, false, 35.4, 180, "Dorito", 0.99, 10, "A4" ));
-        productList.add(new Chips("Nacho Cheese", 1, true, false, 28.0, 120, "Dorito", 0.99, 10, "A5" ));
+        productList.add(new Chips("Barbecue", 1, false, false, 28.4, 139, "Lays", 0.99, 10, "A1"));
+        productList.add(new Chips("Classic", 1, false, false, 28.4, 152, "Lays", 0.99, 10, "A2"));
+        productList.add(new Chips("Original", 1, true, false, 28.2, 160, "Fritos", 0.99, 10, "A3"));
+        productList.add(new Chips("Cool Ranch", 1, true, false, 35.4, 180, "Dorito", 0.99, 10, "A4"));
+        productList.add(new Chips("Nacho Cheese", 1, true, false, 28.0, 120, "Dorito", 0.99, 10, "A5"));
         productList.add(new Drink(12, "Soft Drink", 140, false, 1, "Coca-Cola", 1.25, 10, "D1"));
         productList.add(new Drink(12, "Soft Drink", 0, true, 1, "Diet Coca-Cola", 1.25, 10, "D2"));
         productList.add(new Drink(12, "Soft Drink", 150, false, 1, "Dr. Pepper", 1.25, 10, "D3"));
@@ -114,7 +112,7 @@ public class Dispenser {
      * @param index
      * @param product
      */
-    public void changeProduct(int index, Product product){
+    public void changeProduct(int index, Product product) {
         getProductList().remove(index); //remove the product currently in that index.
         getProductList().add(index, product); // Add the new product to that index.
     }
@@ -157,6 +155,7 @@ public class Dispenser {
 
     /**
      * Returns the totalSales of the Dispenser
+     *
      * @return totalSales
      */
     public int getTotalSales() {

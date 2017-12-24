@@ -13,7 +13,7 @@ package vendingMachine.classes.products;
 import java.text.DecimalFormat;
 import java.util.concurrent.ThreadLocalRandom;
 
-abstract public class Snack extends Product {
+abstract public class Snack extends Product implements Comparable<Snack> {
 
     /**
      * weight of the snack
@@ -69,39 +69,31 @@ abstract public class Snack extends Product {
     public String toString() {
         return super.toString() + "\nSnack{" + "weight=" + weight + ", calories=" + calories + '}';
     }
-    
+
     /**
-     * Compare this snack to another snack
-     * greater return 1
-     * less than return -1
+     * Compare this snack to another snack greater return 1 less than return -1
      * equal return 0
+     *
      * @param snack
-     * return in
+     * @return int
      */
     @Override
-    public in compareTo(Snack snack){
-        
+    public int compareTo(Snack snack) {
+
         //Check to see if the product names are the same.
-        if(this.getProductName().equalsIgnoreCase(snack.getProductName())){
+        if (this.getProductName().equalsIgnoreCase(snack.getProductName())) {
             //If they are the same, check to see if the price is equal
-            if(this.getPrice() == snack.getPrice()){
+            if (this.getPrice() == snack.getPrice()) {
                 return 0;
-            }else{
-                //Test which product has the higher price and return them in ascending order.
-                if(this.getPrice() > snack.getPrice()){
-                    return -1;
-                }else{
-                    return 1;
-                }
-            }
-            
-        }else{
-            //If they have the same price, check which name comes sooner and return result in alphabetical order.
-            if(this.getProductName().compareTOIgnoreCase(snack.getProductName()) > 0){
+            } else if (this.getPrice() > snack.getPrice()) { //Test which product has the higher price and return them in ascending order.
                 return -1;
-            }else{
+            } else {
                 return 1;
             }
+        } else if (this.getProductName().compareToIgnoreCase(snack.getProductName()) > 0) { //If they have the same price, check which name comes sooner and return result in alphabetical order.
+            return -1;
+        } else {
+            return 1;
         }
     }
 
